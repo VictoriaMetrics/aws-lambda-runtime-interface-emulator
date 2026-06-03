@@ -12,15 +12,15 @@ jobs:
       report_contents: ${{ steps.save-output.outputs.report_contents }}
     steps:
       - name: Setup python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065  # v5.6.0
         with:
           python-version: '3.11'
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955  # v4.3.0
         with:
           ref: main
       - name: Download latest release
-        uses: robinraju/release-downloader@v1.10
+        uses: robinraju/release-downloader@c39a3b234af58f0cf85888573d361fb6fa281534  # v1.10
         with:
           latest: true
           fileName: 'aws-lambda-rie*'
@@ -67,7 +67,7 @@ jobs:
       - if: always() && steps.save-output.outputs.report_contents
         name: Create GitHub Issue indicating vulnerabilities
         id: create-issue
-        uses: dacbd/create-issue-action@main
+        uses: dacbd/create-issue-action@cdb57ab6ff8862aa09fee2be6ba77a59581921c2  # v2.0.0
         with:
           token: ${{ github.token }}
           title: |
